@@ -1,0 +1,163 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Curriculum Vitae
+%
+% Source: http://www.howtotex.com/
+% Feel free to distribute this template, but please keep the
+% referal to HowToTeX.com.
+% Date: July 2011
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}                  % Bảng mã T1 giúp font căng nét, không bị răng cưa
+\usepackage{lmodern}                      % Bộ font Latin Modern chất lượng cao
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[svgnames]{xcolor}             % Colors by their 'svgnames'
+\usepackage[a4paper,top=1.5cm,bottom=1.5cm,left=1.8cm,right=1.8cm]{geometry}
+\usepackage{url}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%                            % Change font of \section command
+	\usefont{T1}{phv}{b}{n}%
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{88888888888888}    % Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}     % Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{T1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		\large \usefont{T1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}               % Entry name (address, phone, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\let\SkillsEntry\PersonalEntry     % Same layout as \PersonalEntry
+
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Title
+		\colorbox{Black}{%
+			\parbox{7.5em}{%
+			\hfill\color{White}#2}} \par  % Duration
+		\noindent \textit{#3} \par        % School / Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\let\WorkExperienceEntry\EducationEntry  % Same layout as \EducationEntry
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+
+\MyName{Nguyen Thanh Dat}
+\MySlogan{Backend \& DevOps Engineer}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}{}
+
+\PersonalEntry{Address}{Thuong Cat, Ha Noi, Viet Nam}
+\PersonalEntry{Phone}{(+84) 976 874 936}
+\PersonalEntry{Mail}{\url{datnt1112.contact@gmail.com}}
+% TODO: điền link thật rồi bỏ dấu % ở 2 dòng dưới
+% \PersonalEntry{GitHub}{\url{github.com/your-username}}
+% \PersonalEntry{LinkedIn}{\url{linkedin.com/in/your-profile}}
+
+%%% Summary
+%%% ------------------------------------------------------------
+\NewPart{Summary}{}
+
+\noindent Backend Engineer with 3+ years of experience building APIs and high-concurrency services with Node.js (NestJS) and Java, and operating them on Kubernetes with GitLab CI and ArgoCD. Led a 3-member team to deliver an internal project management system used by multiple corporate clients. Experienced in Web3 integrations, Redis/RabbitMQ-based asynchronous processing, and API security.
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Work experience}{}
+
+\WorkExperienceEntry{Backend \& DevOps Engineer}{2025 -- Present}{FTL CORP}{
+\begin{itemize}\setlength{\itemsep}{1pt}\parskip0pt\parsep0pt
+    \item Led a 3-member team to build and launch an internal project management system, currently serving multiple corporate clients with 10--20 active users per client.
+    \item Built a security vulnerability scanning platform using NestJS (backend) and Next.js (frontend).
+    \item Developed and maintained Java web applications (Java backend, JSP frontend).
+    \item Designed asynchronous job processing with Redis-based queues, used Redis caching to reduce database load, and RabbitMQ for event-driven workflows.
+    \item Set up GitOps delivery with GitLab CI and ArgoCD, automating build, test, and deployment of containerized (Docker) services to Kubernetes clusters on VPS infrastructure.
+\end{itemize}
+}
+
+\sepspace
+
+\WorkExperienceEntry{Backend Developer}{2024 -- 2025}{DEFIKIT}{
+\begin{itemize}\setlength{\itemsep}{1pt}\parskip0pt\parsep0pt
+    \item Built high-concurrency backend services for a Telegram Mini-Game using NestJS and WebSockets, scaling to 5,000+ active users.
+    \item Engineered a token creation and distribution platform serving $\sim$50 active users and automating the generation of 1,000+ tokens daily.
+    \item Integrated Web3.js / Ethers.js to manage wallet connections, sign on-chain transactions, and query real-time blockchain data.
+    \item Designed and optimized PostgreSQL/Redis storage for off-chain metadata, game states, and user assets.
+    \item Implemented JWT authentication, rate limiting, and replay attack prevention to secure APIs against malicious traffic.
+\end{itemize}
+}
+
+\sepspace
+
+\WorkExperienceEntry{Freelance Software Engineer}{2025 -- Present}{Self-Employed -- Part-time, Remote}{
+\begin{itemize}\setlength{\itemsep}{1pt}\parskip0pt\parsep0pt
+    \item Developed marketing automation tools and scripts using Node.js and Python.
+    \item Set up and maintained Linux VPS for clients: Docker, Nginx reverse proxy, SSL, CI/CD, performance tuning and troubleshooting.
+\end{itemize}
+}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{BSc. in Information Technology}{2026 -- Present}{Hanoi Open University}{}
+
+\sepspace
+
+\EducationEntry{Associate Degree in Information Technology}{2022 -- 2024}{FPT Polytechnic}{Major in Web Development with a focus on Backend Engineering (Node.js, Java Spring Boot, PHP Laravel).}
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+
+\SkillsEntry{Languages}{TypeScript, JavaScript, Java, Python, PHP}
+
+\SkillsEntry{Backend}{NestJS, Express, Fastify, Spring Boot, Laravel}
+
+\SkillsEntry{Frontend}{Next.js, JSP}
+
+\SkillsEntry{Database}{PostgreSQL, MySQL, MongoDB, Oracle}
+
+\SkillsEntry{Messaging}{RabbitMQ, Redis (Job Queues, Caching)}
+
+\SkillsEntry{DevOps}{Docker, Kubernetes, GitLab CI/CD, ArgoCD, Nginx, Linux}
+
+\SkillsEntry{Web3}{Web3.js, Ethers.js, Smart Contract Integration}
+
+\SkillsEntry{Tools}{Git, Postman, Sentry}
+
+%%% Spoken languages
+%%% ------------------------------------------------------------
+\NewPart{Languages}{}
+
+\PersonalEntry{Vietnamese}{Native}
+\PersonalEntry{English}{Fluent}
+
+\end{document}
